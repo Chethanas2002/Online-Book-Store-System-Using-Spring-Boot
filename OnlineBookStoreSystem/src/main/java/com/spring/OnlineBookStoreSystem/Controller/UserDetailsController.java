@@ -26,6 +26,9 @@ public class UserDetailsController {
 	
 	@PostMapping("/userdetails")
 	public UserDetails save(@RequestBody UserDetails user) {
+		if (user.getUser() != null) {
+			user.getUser().setUserDetails(user); // set in owning side
+	    }
 		return userDService.saveUserDetails(user);
 	}
 	
