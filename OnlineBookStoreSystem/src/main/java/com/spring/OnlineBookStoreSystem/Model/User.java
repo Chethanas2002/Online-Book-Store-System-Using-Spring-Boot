@@ -34,7 +34,7 @@ public class User {
 	@JoinColumn(name="userDetailsId")
 	private UserDetails userDetails;
 	
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@JsonBackReference
 	private Cart cart;
 }

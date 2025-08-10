@@ -38,4 +38,20 @@ public class CartController {
 	public String deleteCartById(@PathVariable int id) {
 		return cartService.deleteCartById(id);
 	}
+	
+	@GetMapping("/cart/userid/{userId}")
+	public Optional<Cart> findByCartByUserId(@PathVariable int userId){
+		return cartService.findByCartByUserId(userId);
+	}
+	
+	@GetMapping("/cart/username/{userName}")
+	public Optional<Cart> findByCartByUserName(@PathVariable String userName){
+		return cartService.findByCartByUserName(userName);
+	}
+	
+	
+	@DeleteMapping("/cart/userid/{userId}")
+	public String deleteCartByUserId(@PathVariable int userId) {
+		return cartService.deleteCartByUserId(userId);
+	}
 }
