@@ -28,7 +28,7 @@ public class BookService {
 	}
 	
 	public List<Book> getBookByPartialBookName(String name){
-		return bookRepo.findBookByBookNameLikeIgnoreCase(name);
+		return bookRepo.findBookByBookNameContainingIgnoreCase(name);
 	}
 
 	
