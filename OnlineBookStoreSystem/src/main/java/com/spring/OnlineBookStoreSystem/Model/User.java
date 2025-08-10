@@ -1,5 +1,6 @@
 package com.spring.OnlineBookStoreSystem.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -32,4 +33,8 @@ public class User {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="userDetailsId")
 	private UserDetails userDetails;
+	
+	@OneToOne(mappedBy = "user")
+	@JsonBackReference
+	private Cart cart;
 }
