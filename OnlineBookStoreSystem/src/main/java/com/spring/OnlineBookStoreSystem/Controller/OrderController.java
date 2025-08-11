@@ -45,4 +45,28 @@ public class OrderController {
 		
 		return orderService.deleteOrderById(id);
 	}
+	
+	
+	
+	
+	
+	@GetMapping("/orders/status/{status}")
+	public List<Orders> findByStatus(@PathVariable String status){
+		return orderService.findByStatus(status);
+	}
+	
+	@GetMapping("/orders/userid/{id}")
+	public List<Orders> findByUser_UserId(@PathVariable int id){
+		return orderService.findByUser_UserId(id);
+	}
+	
+	@GetMapping("/orders/username/{name}")
+	public List<Orders> findByUser_UserName(@PathVariable String name){
+		return orderService.findByUser_UserName(name);
+	}
+	
+//	@GetMapping("/orders/user/{id}")
+//	public List<Orders> findByUser_UserIdOrderByOrderDateDesc(@PathVariable int userId){
+//		return orderService.findByUser_UserIdOrderByOrderDateDesc(userId);
+//	}
 }

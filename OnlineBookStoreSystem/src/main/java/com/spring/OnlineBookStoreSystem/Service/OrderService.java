@@ -34,4 +34,21 @@ public class OrderService {
 		orderRepo.deleteById(id);
 		return "Order deleted successfully";
 	}
+	
+	
+	public List<Orders> findByStatus(String status){
+		return orderRepo.findByStatusIgnoreCase(status);
+	}
+	
+	public List<Orders> findByUser_UserId(int id){
+		return orderRepo.findByUser_UserId(id);
+	}
+	
+	public List<Orders> findByUser_UserName(String name){
+		return orderRepo.findByUser_UserNameIgnoreCase(name);
+	}
+	
+	public List<Orders> findByUser_UserIdOrderByOrderDateDesc(int userId){
+		return orderRepo.findByUser_UserIdOrderByOrderDateDesc(userId);
+	}
 }
