@@ -44,6 +44,10 @@ public class Book {
 	private Author author;
 	
 	@JsonBackReference
-	@OneToMany(mappedBy = "book" , cascade = CascadeType.ALL , orphanRemoval = true)
+	@OneToMany(mappedBy = "book" , cascade = CascadeType.ALL)
 	private List<CartItem> cartItem;
+	
+	@JsonBackReference
+	@OneToMany(mappedBy = "book")
+	private List<OrderItem> orderItem;
 }

@@ -37,6 +37,6 @@ public class Orders {
 	private User user;
 	
 	@JsonBackReference
-	@OneToMany(mappedBy = "order" , cascade = CascadeType.ALL , orphanRemoval = true)
+	@OneToMany(mappedBy = "order" , cascade = CascadeType.ALL)
 	private List<OrderItem> orderItem;
 }

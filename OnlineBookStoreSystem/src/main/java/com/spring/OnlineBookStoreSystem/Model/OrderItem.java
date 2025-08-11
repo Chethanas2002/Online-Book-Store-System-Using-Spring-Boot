@@ -27,4 +27,10 @@ public class OrderItem {
 	@ManyToOne
 	@JoinColumn(name="orderId")
 	private Orders order;
+	
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name="bookId")
+	private Book book;
+	
 }
