@@ -33,12 +33,12 @@ public class Book {
 	private String description;
 	private LocalDate releaseDate;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoryId")
 	@JsonManagedReference
 	private Category category;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "authorId")
 	@JsonManagedReference
 	private Author author;
