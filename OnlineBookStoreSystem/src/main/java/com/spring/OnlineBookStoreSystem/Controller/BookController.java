@@ -11,62 +11,57 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.OnlineBookStoreSystem.Model.Book;
+import com.spring.OnlineBookStoreSystem.DTO.Book.BookRequestDTO;
+import com.spring.OnlineBookStoreSystem.DTO.Book.BookResponseDTO;
 import com.spring.OnlineBookStoreSystem.Service.BookService;
 
 @RestController
+@RequestMapping("/book")
 public class BookController {
-	
-	@Autowired
-	private BookService bookService;
-	@GetMapping("/bk")
-	public String greet() {
-		return "Greet form Book";
-	}
-	
-	@GetMapping("/book")
-	public List<Book> getAllBooks(){
-		return bookService.getAllBooks();
-	}
-	
-	@GetMapping("/book/id/{id}")
-	public Optional<Book> getBookById(@PathVariable int id){
-		return bookService.getBookById(id);
-	}
-	
-	@GetMapping("/book/name/{name}")
-	public Optional<Book> getBookByBookName(@PathVariable String name){
-		return bookService.getBookByBookName(name);
-	}
-	
-	
-	@GetMapping("/book/partialname/{name}")
-	public List<Book> getBookByPartialBookName(@PathVariable String name){
-		return bookService.getBookByPartialBookName(name);
-	}
 
-	@PostMapping("/book")
-	public Book addBook(@RequestBody Book book) {
-		return bookService.addBook(book);
-	}
-	
-	@DeleteMapping("/book/{id}")
-	public String deleteById(@PathVariable int id) {
-		
-		return bookService.deleteById(id);
-	}
-	
-	
-	
-	@PutMapping("/books/{bookId}/author/{authorId}")
-	public ResponseEntity<String> linkAuthorToBook(
-	        @PathVariable int bookId,
-	        @PathVariable int authorId) {
-	    bookService.linkAuthorToBook(bookId, authorId);
-	    return ResponseEntity.ok("Author linked to book successfully");
-	}
+    @Autowired
+    private BookService bookService;
 
-	
+    @GetMapping
+    public List<BookResponseDTO> getAllBooks() {
+        return bookService.getAllBooks();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BookResponseDTO> getBookById(@PathVariable int id) {
+        Optional<BookResponseDTO> dto = bookService.getBookById(id);
+        return dto.map(ResponseEntity::ok)
+                  .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public BookResponseDTO addBook(@RequestBody BookRequestDTO dto) {
+        return bookService.addBook(dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteById(@PathVariable int id) {
+        return bookService.deleteById(id);
+    }
+
+    // Link Author
+    @PutMapping("/{bookId}/author/{authorId}")
+    public ResponseEntity<String> linkAuthorToBook(
+            @PathVariable int bookId,
+            @PathVariable int authorId) {
+        bookService.linkAuthorToBook(bookId, authorId);
+        return ResponseEntity.ok("Author linked to book successfully");
+    }
+
+    // Link Category
+    @PutMapping("/{bookId}/category/{categoryId}")
+    public ResponseEntity<String> linkCategoryToBook(
+            @PathVariable int bookId,
+            @PathVariable int categoryId) {
+        bookService.linkCategoryToBook(bookId, categoryId);
+        return ResponseEntity.ok("Category linked to book successfully");
+    }
 }
