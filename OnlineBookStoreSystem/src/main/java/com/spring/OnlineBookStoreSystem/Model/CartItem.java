@@ -28,4 +28,9 @@ public class CartItem {
 	@ManyToOne
 	@JoinColumn(name = "cartId")
 	private Cart cart;
+	
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name = "bookId")
+	private Book book;
 }
