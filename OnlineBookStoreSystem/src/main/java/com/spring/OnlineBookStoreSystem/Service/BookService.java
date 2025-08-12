@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.OnlineBookStoreSystem.DTO.Book.BookRequestDTO;
-import com.spring.OnlineBookStoreSystem.DTO.Book.BookResponseDTO;
+import com.spring.OnlineBookStoreSystem.DTO.BookDTO.BookRequestDTO;
+import com.spring.OnlineBookStoreSystem.DTO.BookDTO.BookResponseDTO;
 import com.spring.OnlineBookStoreSystem.Model.Author;
 import com.spring.OnlineBookStoreSystem.Model.Book;
 import com.spring.OnlineBookStoreSystem.Model.Category;

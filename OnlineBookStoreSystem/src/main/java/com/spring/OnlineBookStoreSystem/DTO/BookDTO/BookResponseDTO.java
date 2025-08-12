@@ -1,4 +1,4 @@
-package com.spring.OnlineBookStoreSystem.DTO.Book;
+package com.spring.OnlineBookStoreSystem.DTO.BookDTO;
 
 import java.time.LocalDate;
 
