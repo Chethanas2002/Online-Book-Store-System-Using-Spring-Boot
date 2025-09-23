@@ -23,7 +23,8 @@ The Online Book Store backend is a Spring Boot application designed to manage us
 
 ---
 
-## Project Structure  
+## Project Structure 
+```bash
 OnlineBookStore/
 ├── src/main/java/com/spring/OnlineBookStore
 │ ├── controller/ # REST Controllers
@@ -34,9 +35,9 @@ OnlineBookStore/
 ├── src/main/resources/
 │ ├── application.properties # DB Configurations
 └── pom.xml
+```
 
 
----
 
 ## Installation and Setup  
 
