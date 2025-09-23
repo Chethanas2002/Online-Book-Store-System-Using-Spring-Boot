@@ -35,8 +35,6 @@ OnlineBookStore/
 │ ├── application.properties # DB Configurations
 └── pom.xml
 
-yaml
-
 
 ---
 
@@ -46,25 +44,16 @@ yaml
    ```bash
    git clone https://github.com/your-username/OnlineBookStore.git
    cd OnlineBookStore
-Configure database (MySQL)
-Edit application.properties:
 
-properties
-Copy code
 
 2. **Configure database (MySQL)
 Edit application.properties:**  
    ```bash
-
    spring.datasource.url=jdbc:mysql://localhost:3306/bookstore
    spring.datasource.username=your-username
    spring.datasource.password=your-password
    spring.jpa.hibernate.ddl-auto=update
 
-
-
-
 3. **Build and run the application**
-
 ```bash
 mvn spring-boot:run
