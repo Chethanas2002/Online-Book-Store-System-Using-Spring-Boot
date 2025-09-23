@@ -43,7 +43,7 @@ OnlineBookStore/
 
 1. **Clone the repository**  
    ```bash
-   git clone [https://github.com/Chethanas2002/Online-Book-Store-System-Using-Spring-Boot]
+   git clone https://github.com/Chethanas2002/Online-Book-Store-System-Using-Spring-Boot
    cd OnlineBookStore
 
 
